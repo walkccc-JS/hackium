@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-function App() {
-  return <div className='App' />;
+import Navbar from './Navbar';
+
+class App extends Component {
+  componentWillMount() {
+    this.props.fetchUser();
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <BrowserRouter>
+          <Navbar />
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default connect(
+  null,
+  actions
+)(App);
