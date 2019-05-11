@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../actions';
-import Hackium from '../img/hackium.png';
+import Hackium from '../img/Hackium.png';
+import Google from '../img/Google.png';
+import GitHub from '../img/GitHub.png';
 
 class Navbar extends Component {
   componentDidMount() {
@@ -24,21 +26,27 @@ class Navbar extends Component {
   }
 
   renderButton() {
-    console.log(this.props);
     switch (this.props.auth) {
       case null:
         return;
       case false:
         return (
-          <a href="/auth/google" className="button is-primary">
-            <strong>Login with Google</strong>
-          </a>
+          <div className="navbar-item">
+            <a href="/auth/google" className="navbar-item">
+              <img src={Google} alt="Google" width="28" height="28" />
+            </a>
+            <a href="/auth/github" className="navbar-item">
+              <img src={GitHub} alt="GitHub" width="28" height="28" />
+            </a>
+          </div>
         );
       default:
         return (
-          <a href="/api/logout" className="button is-primary">
-            <strong>Logout</strong>
-          </a>
+          <div className="navbar-item">
+            <a href="/api/logout" className="button is-primary">
+              <strong>Logout</strong>
+            </a>
+          </div>
         );
     }
   }
@@ -59,7 +67,13 @@ class Navbar extends Component {
       <nav className="navbar">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
-            <img src={Hackium} alt="Hackium" width="28" height="28" style={{ marginRight: 5 }} />
+            <img
+              src={Hackium}
+              alt="Hackium"
+              width="28"
+              height="28"
+              style={{ marginRight: 5 }}
+            />
             <span>
               <strong>Hackium</strong>
             </span>
@@ -79,15 +93,14 @@ class Navbar extends Component {
           </Link>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
-          <Link to={this.props.auth ? '/current_page' : '/'} className="navbar-item">
+          <Link
+            to={this.props.auth ? '/current_page' : '/'}
+            className="navbar-item"
+          >
             Dashboard
           </Link>
           <div className="navbar-start">{this.renderContent()}</div>
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">{this.renderButton()}</div>
-            </div>
-          </div>
+          <div className="navbar-end">{this.renderButton()}</div>
         </div>
       </nav>
     );
