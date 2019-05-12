@@ -20,7 +20,7 @@ module.exports = app => {
     '/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     (req, res) => {
-      res.redirect('/');
+      res.redirect('/posts');
     }
   );
 
@@ -30,7 +30,7 @@ module.exports = app => {
     '/auth/facebook/callback',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     (req, res) => {
-      res.redirect('/');
+      res.redirect('/posts');
     }
   );
 

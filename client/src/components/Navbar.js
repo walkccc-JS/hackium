@@ -5,6 +5,7 @@ import * as actions from '../actions';
 import Hackium from '../img/Hackium.png';
 import Google from '../img/Google.png';
 import GitHub from '../img/GitHub.png';
+import Facebook from '../img/Facebook.png';
 
 class Navbar extends Component {
   componentDidMount() {
@@ -37,6 +38,9 @@ class Navbar extends Component {
             </a>
             <a href="/auth/github" className="navbar-item">
               <img src={GitHub} alt="GitHub" width="28" height="28" />
+            </a>
+            <a href="/auth/facebook" className="navbar-item">
+              <img src={Facebook} alt="Facebook" width="28" height="28" />
             </a>
           </div>
         );
