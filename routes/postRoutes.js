@@ -37,7 +37,7 @@ module.exports = app => {
   app.post('/api/posts', async (req, res) => {
     console.log(req.body);
     const { title, body, tags } = req.body;
-    const post = new Post({
+    const newPost = new Post({
       title,
       body,
       tags,
@@ -49,7 +49,8 @@ module.exports = app => {
     });
 
     try {
-      await post.save();
+      const post = await newPost.save();
+      res.send(post);
     } catch (err) {
       res.status(422).send(err);
     }

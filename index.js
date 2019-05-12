@@ -9,6 +9,7 @@ require('./models/Post');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.set('useFindAndModify', false);
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/userRoutes')(app);
 require('./routes/postRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
