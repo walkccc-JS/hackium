@@ -20,20 +20,27 @@ class PostList extends Component {
             <div className="media">
               <div className="media-content">
                 <p className="subtitle has-text-weight-semibold is-6">
-                  {post.title}
+                  <strong>Title:</strong> {post.title}
                 </p>
               </div>
             </div>
 
             <div className="content">
-              {post.body}
+              <strong>Content:</strong> {post.body}
               <br />
+              post._id: {post._id}
               <div className="is-pulled-right">
                 sent on: {new Date(post.createdAt).toLocaleDateString()}
               </div>
             </div>
           </div>
           <footer className="card-footer">
+            <Link
+              to={`/posts/${post._id}/edit`}
+              className="card-footer-item has-text-link delete-link"
+            >
+              <i className="fas fa-edit" />
+            </Link>
             <Link
               to="#"
               className="card-footer-item has-text-warning delete-link"
