@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../actions';
-import Hackium from '../img/Hackium.png';
-import Google from '../img/Google.png';
-import GitHub from '../img/GitHub.png';
-import Facebook from '../img/Facebook.png';
+import Hackium from '../img/hackium.png';
+import Google from '../img/google.png';
+import GitHub from '../img/github.png';
+import Facebook from '../img/facebook.png';
 
 class Navbar extends Component {
   componentDidMount() {
