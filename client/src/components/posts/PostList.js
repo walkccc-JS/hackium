@@ -10,7 +10,6 @@ class PostList extends Component {
 
   handleDeletePost(id) {
     this.props.deletePost(id);
-    // this.props.history.push('/posts');
   }
 
   renderPosts() {

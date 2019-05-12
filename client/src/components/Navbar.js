@@ -93,10 +93,7 @@ class Navbar extends Component {
           </Link>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
-          <Link
-            to={this.props.auth ? '/current_page' : '/'}
-            className="navbar-item"
-          >
+          <Link to={this.props.auth ? '/posts' : '/'} className="navbar-item">
             Dashboard
           </Link>
           <div className="navbar-start">{this.renderContent()}</div>

@@ -35,7 +35,6 @@ module.exports = app => {
 
   // POST a new post
   app.post('/api/posts', async (req, res) => {
-    console.log(req.body);
     const { title, body, tags } = req.body;
     const newPost = new Post({
       title,
