@@ -8,7 +8,10 @@ require('./models/User');
 require('./models/Post');
 require('./services/passport');
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.connect(keys.mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 mongoose.set('useFindAndModify', false);
 
 const app = express();
